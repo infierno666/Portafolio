@@ -50,5 +50,5 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 1. Clona el repositorio:
 
 ```bash
-[git clone https://github.com/TU_USUARIO/portafolio-web.git](https://github.com/infierno666/Portafolio.git)
+git clone https://github.com/infierno666/Portafolio.git
 ```

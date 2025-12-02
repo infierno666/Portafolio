@@ -11,18 +11,18 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 
 ## 📂 Estructura del Proyecto
 
-portafolio-web/
-│
-├─ css/
-│ ├─ main.css
-│ └─ normalize.css
-├─ docs/
-│ └─ chatbot-firebase.pdf
-├─ img/
-│ └─ favicon.png
-├─ index.html
-└─ README.md
-
+```text 
+📁 portafolio-web/
+├─ 📁 css/
+│  ├─ 📄 main.css
+│  └─ 📄 normalize.css
+├─ 📁 docs/
+│  └─ 📄 chatbot-firebase.pdf
+├─ 📁 img/
+│  └─ 📄 favicon.png
+├─ 📄 index.html
+└─ 📄 README.md
+```
 ---
 
 ## 💻 Funcionalidades
@@ -50,5 +50,5 @@ portafolio-web/
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/TU_USUARIO/portafolio-web.git
+git clone https://github.com/infierno666/Portafolio.git
 ```

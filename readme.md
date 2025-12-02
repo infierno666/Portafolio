@@ -17,9 +17,10 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 │  ├─ 📄 main.css
 │  └─ 📄 normalize.css
 ├─ 📁 docs/
-│  └─ 📄 chatbot-firebase.pdf
+│  └─ 📄 InformeActividad_1.pdf
 ├─ 📁 img/
-│  └─ 📄 favicon.png
+│  └─ 📄 icon.png
+│  └─ 📄 profile.png
 ├─ 📄 index.html
 └─ 📄 README.md
 ```

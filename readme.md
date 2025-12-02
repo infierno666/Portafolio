@@ -11,17 +11,16 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 
 ## 📂 Estructura del Proyecto
 
-portafolio-web/
-│
-├─ css/
-│ ├─ main.css
-│ └─ normalize.css
-├─ docs/
-│ └─ chatbot-firebase.pdf
-├─ img/
-│ └─ favicon.png
-├─ index.html
-└─ README.md
+📁 portafolio-web/
+├─ 📁 css/
+│  ├─ 📄 main.css
+│  └─ 📄 normalize.css
+├─ 📁 docs/
+│  └─ 📄 chatbot-firebase.pdf
+├─ 📁 img/
+│  └─ 📄 favicon.png
+├─ 📄 index.html
+└─ 📄 README.md
 
 ---
 

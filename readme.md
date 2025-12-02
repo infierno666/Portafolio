@@ -11,6 +11,7 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 
 ## 📂 Estructura del Proyecto
 
+```text 
 📁 portafolio-web/
 ├─ 📁 css/
 │  ├─ 📄 main.css
@@ -21,7 +22,7 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 │  └─ 📄 favicon.png
 ├─ 📄 index.html
 └─ 📄 README.md
-
+```
 ---
 
 ## 💻 Funcionalidades
@@ -49,5 +50,5 @@ Este es mi **portafolio de asignaciones** de la materia **Tecnología Web I** de
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/TU_USUARIO/portafolio-web.git
+[git clone https://github.com/TU_USUARIO/portafolio-web.git](https://github.com/infierno666/Portafolio.git)
 ```

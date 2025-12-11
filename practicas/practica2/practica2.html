@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica JavaScript - Estilo Dark Ghibli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../css/normalize.css">
+</head>
+
+<body>
+    <a href="../../index.html" class="btn-principal">
+        <i class="fas fa-arrow-left"></i> Volver a la página principal
+    </a>
+    <h1>Práctica de JavaScript</h1>
+
+
+
+    <div class="container">
+
+        <div class="card">
+            <h2><i class="fas fa-cloud-sun"></i> 1. Clima según Temperatura</h2>
+            <div class="input-group">
+                <label for="tempInput">Ingrese Temperatura (°C):</label>
+                <input type="number" id="tempInput" placeholder="Ej: 20">
+            </div>
+            <button onclick="calcularClima()">Ver Clima</button>
+            <div id="res1" class="result-box">Esperando dato...</div>
+        </div>
+
+
+        <div class="card">
+            <h2><i class="fas fa-sort-numeric-up"></i> 2. Algoritmo Fizz-Buzz</h2>
+            <p>Generar secuencia del 1 al 100.</p>
+            <button onclick="generarFizzBuzz()">Generar Secuencia</button>
+            <div id="res2" class="result-box">Click para generar...</div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-calendar-alt"></i> 3. Fecha Actual</h2>
+            <p>Mostrar fecha en formato largo.</p>
+            <button onclick="mostrarFecha()"><i class="fas fa-clock"></i> Obtener Fecha</button>
+            <div id="res3" class="result-box">------/----/-------</div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-globe-americas"></i> 4. Objeto Lugar Turístico</h2>
+            <div id="infoLugar" class="status-info">Cargando info...</div>
+
+            <button onclick="verPromedio()" class="secondary"><i class="fas fa-star"></i> Ver Promedio Calif.</button>
+
+            <div class="input-group" style="margin-top: 15px;">
+                <label for="descInput">Descuento (%):</label>
+                <input type="number" id="descInput" placeholder="Ej: 10">
+            </div>
+            <button onclick="aplicarDescuentoUI()"><i class="fas fa-percent"></i> Aplicar Descuento</button>
+
+            <div id="res4" class="result-box">Esperando acción...</div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-hotel"></i> 5. Clase Hotel</h2>
+            <div id="infoHotel" class="status-info">Cargando info...</div>
+
+            <div class="input-group">
+                <label for="cantHotel">Cantidad de Habitaciones:</label>
+                <input type="number" id="cantHotel" placeholder="Ej: 2">
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                <button onclick="accionReservar()"><i class="fas fa-key"></i> Reservar</button>
+                <button onclick="accionLiberar()" class="secondary"><i class="fas fa-door-open"></i> Liberar</button>
+            </div>
+
+            <div id="res5" class="result-box">Esperando acción...</div>
+        </div>
+        <div class="card">
+            <h2><i class="fas fa-award"></i> 6. Certificado</h2>
+
+            <p style="font-size: 0.9em; color: var(--text-secondary);">Visualiza tu certificado de finalización aquí.
+            </p>
+
+            <button onclick="abrirModal()" style="margin-top: 15px;">
+                <i class="fas fa-image"></i> Ver Certificado
+            </button>
+        </div>
+
+    </div>
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <h2 style="color: var(--accent-color); margin-top: 0;">Certificado de Finalización</h2>
+
+            <img src="Certificado.png" alt="Certificado">
+
+            <br><br>
+            <button onclick="cerrarModal()" class="secondary" style="width: auto; padding: 10px 30px;">Cerrar</button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // --- EJERCICIO 1: TEMPERATURA ---
+        function calcularClima() {
+            const temp = parseFloat(document.getElementById('tempInput').value);
+            const display = document.getElementById('res1');
+
+            if (isNaN(temp)) {
+                display.textContent = "Por favor ingrese un número válido.";
+                display.style.color = "var(--error-color)";
+                return;
+            }
+
+            let clima = "";
+            let color = "var(--text-color)";
+
+            if (temp >= -10 && temp <= 15) {
+                clima = "Frío";
+                color = "#60a5fa";
+            } else if (temp >= 16 && temp <= 25) {
+                clima = "Templado";
+                color = "#fbbf24";
+            } else if (temp >= 26 && temp <= 40) {
+                clima = "Calor";
+                color = "#f87171";
+            } else {
+                clima = "Fuera de rango (-10 a 40)";
+                color = "var(--text-secondary)";
+            }
+
+            display.textContent = `Resultado: ${clima}`;
+            display.style.color = color;
+        }
+
+        // --- EJERCICIO 2: FIZZBUZZ ---
+        function generarFizzBuzz() {
+            const display = document.getElementById('res2');
+            let output = "";
+
+            for (let i = 1; i <= 100; i++) {
+                let linea = "";
+                if (i % 3 === 0) linea += "Fizz";
+                if (i % 5 === 0) linea += "Buzz";
+
+                if (linea !== "") {
+                    output += `${i}: ${linea}\n`;
+                }
+            }
+            display.textContent = output;
+        }
+
+        // --- EJERCICIO 3: FECHA ---
+        function mostrarFecha() {
+            const display = document.getElementById('res3');
+            const fecha = new Date();
+
+            const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+            const diaSemana = dias[fecha.getDay()];
+            const diaNum = fecha.getDate();
+            const mes = meses[fecha.getMonth()];
+            const anio = fecha.getFullYear();
+
+            display.textContent = `${diaSemana}, ${diaNum} de ${mes} del ${anio}`;
+        }
+
+        // --- EJERCICIO 4: OBJETO LUGAR TURISTICO ---
+        const lugarTuristico = {
+            nombre: "Salar de Uyuni",
+            ciudad: "Potosí",
+            precioEntrada: 150.00,
+            horario: "08:00 - 18:00",
+            calificaciones: [5, 4, 5, 5, 4],
+
+            promedioCalificaciones: function () {
+                const suma = this.calificaciones.reduce((a, b) => a + b, 0);
+                return (suma / this.calificaciones.length).toFixed(2);
+            },
+
+            aplicarDescuento: function (porcentaje) {
+                const desc = this.precioEntrada * (porcentaje / 100);
+                this.precioEntrada -= desc;
+            }
+        };
+
+        function actualizarUILugar() {
+            const div = document.getElementById('infoLugar');
+            div.innerHTML = `
+                <strong>Lugar:</strong> ${lugarTuristico.nombre}<br>
+                <strong>Ciudad:</strong> ${lugarTuristico.ciudad}<br>
+                <strong>Precio:</strong> Bs. ${lugarTuristico.precioEntrada.toFixed(2)}
+            `;
+        }
+
+        function verPromedio() {
+            document.getElementById('res4').textContent = `Promedio de Calificaciones: ${lugarTuristico.promedioCalificaciones()} / 5`;
+        }
+
+        function aplicarDescuentoUI() {
+            const input = document.getElementById('descInput');
+            const val = parseFloat(input.value);
+
+            if (!isNaN(val) && val > 0 && val <= 100) {
+                lugarTuristico.aplicarDescuento(val);
+                actualizarUILugar();
+                document.getElementById('res4').textContent = `Descuento del ${val}% aplicado correctamente.`;
+                document.getElementById('res4').style.color = "var(--success-color)";
+                input.value = "";
+            } else {
+                document.getElementById('res4').textContent = "Por favor ingrese un porcentaje válido (1-100).";
+                document.getElementById('res4').style.color = "var(--error-color)";
+            }
+        }
+
+        actualizarUILugar();
+
+        // --- EJERCICIO 5: CLASE HOTEL ---
+        class Hotel {
+            constructor(nombre, ciudad, habitacionesDisponibles) {
+                this.nombre = nombre;
+                this.ciudad = ciudad;
+                this.habitacionesDisponibles = habitacionesDisponibles;
+            }
+
+            reservar(cantidad) {
+                if (cantidad > 0 && this.habitacionesDisponibles >= cantidad) {
+                    this.habitacionesDisponibles -= cantidad;
+                    return { msg: `Reserva de ${cantidad} confirmada.`, success: true };
+                } else {
+                    return { msg: `Error: Disponibilidad insuficiente o cantidad inválida.`, success: false };
+                }
+            }
+
+            liberar(cantidad) {
+                if (cantidad > 0) {
+                    this.habitacionesDisponibles += cantidad;
+                    return { msg: `Se liberaron ${cantidad} habitaciones.`, success: true };
+                }
+                return { msg: `Cantidad inválida.`, success: false };
+            }
+
+            info() {
+                return `<strong>${this.nombre}</strong> (${this.ciudad})<br>Disponibles: <strong>${this.habitacionesDisponibles}</strong>`;
+            }
+        }
+
+        const miHotel = new Hotel("Hotel Cochabamba", "Cochabamba", 20);
+
+        function actualizarUIHotel() {
+            document.getElementById('infoHotel').innerHTML = miHotel.info();
+        }
+
+        function accionReservar() {
+            const input = document.getElementById('cantHotel');
+            const cant = parseInt(input.value);
+            const resultado = miHotel.reservar(cant);
+            const display = document.getElementById('res5');
+            display.textContent = resultado.msg;
+            display.style.color = resultado.success ? "var(--success-color)" : "var(--error-color)";
+            actualizarUIHotel();
+        }
+
+        function accionLiberar() {
+            const input = document.getElementById('cantHotel');
+            const cant = parseInt(input.value);
+            const resultado = miHotel.liberar(cant);
+            const display = document.getElementById('res5');
+            display.textContent = resultado.msg;
+            display.style.color = resultado.success ? "var(--success-color)" : "var(--error-color)";
+            actualizarUIHotel();
+        }
+        actualizarUIHotel();
+        // --- LÓGICA DEL MODAL ---
+        const modal = document.getElementById("miModal");
+
+        function abrirModal() {
+            modal.style.display = "flex"; // Usamos flex para centrar
+        }
+
+        function cerrarModal() {
+            modal.style.display = "none";
+        }
+
+        // Cerrar si el usuario hace clic fuera de la imagen (en el fondo oscuro)
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

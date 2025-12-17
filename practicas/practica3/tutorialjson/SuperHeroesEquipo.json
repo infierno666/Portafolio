@@ -1,0 +1,49 @@
+{
+  "nombreEscuadron": "Los Vengadores",
+  "ciudadNatal": "Nueva York",
+  "formadoEn": 2012,
+  "baseSecreta": "Torre Stark",
+  "activo": true,
+  "miembros": [
+    {
+      "nombre": "Iron Man",
+      "edad": 48,
+      "identidadSecreta": "Tony Stark",
+      "poderes": [
+        "Armadura tecnológica",
+        "Vuelo sónico",
+        "Rayos repulsores"
+      ]
+    },
+    {
+      "nombre": "Capitán América",
+      "edad": 105,
+      "identidadSecreta": "Steve Rogers",
+      "poderes": [
+        "Súper fuerza",
+        "Escudo de Vibranium",
+        "Liderazgo táctico"
+      ]
+    },
+    {
+      "nombre": "Thor",
+      "edad": 1500,
+      "identidadSecreta": "Thor Odinson",
+      "poderes": [
+        "Dios del Trueno",
+        "Vuelo con Mjolnir",
+        "Inmortalidad"
+      ]
+    },
+    {
+      "nombre": "Hulk",
+      "edad": 49,
+      "identidadSecreta": "Bruce Banner",
+      "poderes": [
+        "Fuerza ilimitada",
+        "Resistencia extrema",
+        "Salto orbital"
+      ]
+    }
+  ]
+}
